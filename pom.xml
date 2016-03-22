@@ -39,6 +39,12 @@
       <version>${jackson.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.tibco</groupId>
+      <artifactId>tibjms</artifactId>
+      <version>8.2.1_v4</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -101,6 +107,12 @@
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
+    </repository>
+
+    <repository>
+        <id>project.local</id>
+        <name>project-local</name>
+        <url>file:${project.basedir}/repo</url>
     </repository>
 
   </repositories>
