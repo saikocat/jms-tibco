@@ -13,6 +13,10 @@ public class TibcoRuleMessageSerDes {
     private TibcoRuleMessageSerDes() {
     }
 
+    public static String serialize(Object o) throws JsonProcessingException {
+        return getXmlMapper().writeValueAsString(o);
+    }
+
     public static String serialize(TibcoRuleMessage ruleMessage) throws JsonProcessingException {
         return getXmlMapper().writeValueAsString(ruleMessage);
     }
