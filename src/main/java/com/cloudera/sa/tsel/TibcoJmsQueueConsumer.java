@@ -14,6 +14,8 @@ import javax.jms.TextMessage;
 
 import javax.jms.JMSException;
 
+import com.cloudera.sa.tsel.handler.BaseHandler;
+
 public class TibcoJmsQueueConsumer {
     private static final boolean TRANSACTED = true;
 
@@ -73,9 +75,9 @@ public class TibcoJmsQueueConsumer {
             return this;
         }
 
-        public Builder withMessageListener() throws JMSException {
+        public Builder withMessageListener(BaseHandler handler) throws JMSException {
             this.consumer.setMessageListener(
-                new TibcoRuleMessageListener(this.session));
+                new TibcoRuleMessageListener(this.session, handler));
             return this;
         }
 

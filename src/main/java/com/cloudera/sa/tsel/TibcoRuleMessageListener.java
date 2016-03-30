@@ -8,11 +8,15 @@ import javax.jms.MessageListener;
 import javax.jms.JMSException;
 import java.io.IOException;
 
+import com.cloudera.sa.tsel.handler.BaseHandler;
+
 public class TibcoRuleMessageListener implements MessageListener {
     private Session session;
+    private BaseHandler handler;
 
-    public TibcoRuleMessageListener(final Session session) {
+    public TibcoRuleMessageListener(final Session session, final BaseHandler handler) {
         this.session = session;
+        this.handler = handler;
     }
 
     @Override
