@@ -1,5 +1,7 @@
 package com.cloudera.sa.tsel;
 
+import com.cloudera.sa.tsel.dto.*;
+
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -17,12 +19,12 @@ public class TibcoRuleMessageSerDes {
         return getXmlMapper().writeValueAsString(o);
     }
 
-    public static String serialize(TibcoRuleMessage ruleMessage) throws JsonProcessingException {
-        return getXmlMapper().writeValueAsString(ruleMessage);
+    public static KpiDetails deserializeKpiDetails(String text) throws IOException {
+        return getXmlMapper().readValue(text, KpiDetails.class);
     }
 
-    public static TibcoRuleMessage deserialize(String text) throws IOException {
-        return getXmlMapper().readValue(text, TibcoRuleMessage.class);
+    public static KpiDetail deserializeKpiDetail(String text) throws IOException {
+        return getXmlMapper().readValue(text, KpiDetail.class);
     }
 
     public static XmlMapper getXmlMapper() {
