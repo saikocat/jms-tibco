@@ -25,8 +25,7 @@ public class TibcoRuleMessageListener implements MessageListener {
         try {
             if (message instanceof TextMessage) {
                 msg = (TextMessage) message;
-                processMessage(msg, session);
-                session.commit();
+                processMessage(msg);
             } else {
                 System.out.println("Message is not a " + "TextMessage");
             }
@@ -37,11 +36,10 @@ public class TibcoRuleMessageListener implements MessageListener {
         }
     }
 
-    public void processMessage(TextMessage message, Session session) throws JMSException {
+    public void processMessage(TextMessage message) throws JMSException {
         try {
-            TibcoRuleMessage ruleMessage =
-                TibcoRuleMessageSerDes.deserialize(message.getText());
-            System.out.println(ruleMessage);
+            handler.processMessage(message);
+            session.commit();
         } catch (IOException ioe) {
             session.rollback();
         }
