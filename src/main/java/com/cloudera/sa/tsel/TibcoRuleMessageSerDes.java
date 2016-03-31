@@ -19,12 +19,8 @@ public class TibcoRuleMessageSerDes {
         return getXmlMapper().writeValueAsString(o);
     }
 
-    public static KpiDetails deserializeKpiDetails(String text) throws IOException {
-        return getXmlMapper().readValue(text, KpiDetails.class);
-    }
-
-    public static KpiDetail deserializeKpiDetail(String text) throws IOException {
-        return getXmlMapper().readValue(text, KpiDetail.class);
+    public static <E> E deserialize(String text, Class<E> clazz) throws IOException {
+        return getXmlMapper().readValue(text, clazz);
     }
 
     public static XmlMapper getXmlMapper() {

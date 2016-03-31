@@ -13,7 +13,7 @@ public class KpiDetailHandler implements BaseHandler {
     @Override
     public void processMessage(TextMessage message) throws IOException, JMSException {
         KpiDetails kpiDetails =
-            TibcoRuleMessageSerDes.deserializeKpiDetails(message.getText());
+            TibcoRuleMessageSerDes.deserialize(message.getText(), KpiDetails.class);
         System.out.println(kpiDetails);
     }
 }

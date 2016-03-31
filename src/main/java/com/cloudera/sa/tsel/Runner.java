@@ -38,7 +38,7 @@ public class Runner {
             .build();
         String rule2 = TibcoRuleMessageSerDes.serialize(kds);
         System.out.println(rule2);
-        System.out.println(TibcoRuleMessageSerDes.deserializeKpiDetails(rule2));
+        System.out.println(TibcoRuleMessageSerDes.deserialize(rule2, KpiDetails.class));
         System.out.println("----- End Input Data Debug -----");
 
         TibcoJmsQueueProducer.Builder producerBuilder =
