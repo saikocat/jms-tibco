@@ -7,8 +7,19 @@ import com.google.common.base.MoreObjects;
 
 @JacksonXmlRootElement(localName = "KPI_Detail")
 public class KpiDetail {
+    /*
+     * We want a private constructor since we want to have an immutable object
+     * (params are final) once created with our builder class
+     */
     private KpiDetail() { }
 
+    /*
+     * Public visibility for fields instead of getter and setter since they are
+     * Data Transfer Object (DTO). By right they should be final, but jackson
+     * doesn't like final fields without default constructor and setter method.
+     * A compromise on public fields and immutable object marred by Jackson
+     * limitation.
+     */
     public KpiDetail(
             final String priority,
             final String number,
