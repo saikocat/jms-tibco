@@ -36,6 +36,8 @@ public class TibcoRuleMessageListener implements MessageListener {
         }
     }
 
+    // See TibcJmsQueueConsumer.java for information about transactional delivery
+    // and why commit and rollback is necessary here
     public void processMessage(TextMessage message) throws JMSException {
         try {
             handler.processMessage(message);

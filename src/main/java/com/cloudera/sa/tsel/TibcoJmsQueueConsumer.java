@@ -45,6 +45,14 @@ public class TibcoJmsQueueConsumer {
         connection.close();
     }
 
+    /*
+     * To understand Transactional and Reliability with JMS queue as well as
+     * other type of delivery and consuming method for JMS. Read these articles:
+     *  - Transaction and redelivery in JMS @ http://www.javaworld.com/article/2074123/java-web-development/transaction-and-redelivery-in-jms.html
+     *  - JMS Delivery Reliability and Acknowledge Patterns @ http://wso2.com/library/articles/2013/01/jms-message-delivery-reliability-acknowledgement-patterns/
+     *  - Reliable JMS with Transactions @ https://www.atomikos.com/Publications/ReliableJmsWithTransactions
+     *  - Java Doc for Session @ https://docs.oracle.com/javaee/7/api/javax/jms/Session.html
+     */
     public static class Builder {
         private ConnectionFactory factory;
         private Connection connection;
