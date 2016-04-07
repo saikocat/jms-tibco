@@ -4,6 +4,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
+import com.google.common.base.Objects;
 import com.google.common.base.MoreObjects;
 import com.google.common.collect.ImmutableList;
 
@@ -28,10 +29,19 @@ public class KpiDetails {
         this.kpiDetails = kpiDetails;
     }
 
+    @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
             .add("KPI_Detail", this.kpiDetails)
             .toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        final KpiDetails other = (KpiDetails) obj;
+        return java.util.Arrays.deepEquals(this.kpiDetails, other.kpiDetails);
     }
 
     public static class Builder {

@@ -3,6 +3,7 @@ package com.cloudera.sa.tsel.dto;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import com.google.common.base.Objects;
 import com.google.common.base.MoreObjects;
 
 @JacksonXmlRootElement(localName = "KPI_Detail")
@@ -83,6 +84,7 @@ public class KpiDetail {
     @JacksonXmlProperty(localName = "Description")
     public String description = null;
 
+    @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
             .add("KPI_Priority", this.priority)
@@ -99,6 +101,27 @@ public class KpiDetail {
             .add("Description", this.description)
             .toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        final KpiDetail other = (KpiDetail) obj;
+        return Objects.equal(this.priority, other.priority)
+            && Objects.equal(this.number, other.number)
+            && Objects.equal(this.name, other.name)
+            && Objects.equal(this.category, other.category)
+            && Objects.equal(this.fraudType, other.fraudType)
+            && Objects.equal(this.serviceCustType, other.serviceCustType)
+            && Objects.equal(this.enableSms, other.enableSms)
+            && Objects.equal(this.enableEmail, other.enableEmail)
+            && Objects.equal(this.threshold, other.threshold)
+            && Objects.equal(this.durationFrequency, other.durationFrequency)
+            && Objects.equal(this.enableKpi, other.enableKpi)
+            && Objects.equal(this.description, other.description);
+    }
+
+
 
     public static class Builder {
         private String priority;
