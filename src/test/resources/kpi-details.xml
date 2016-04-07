@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<KPI_Details>
+  <KPI_Detail>
+    <KPI_Priority>High</KPI_Priority>
+    <KPI_Number>tst 123</KPI_Number>
+    <KPI_Name>kpi name</KPI_Name>
+    <KPI_Category>cat 1</KPI_Category>
+    <Fraud_Type>Fraud Cat</Fraud_Type>
+    <Service_Cust_Type>Service Cat 1</Service_Cust_Type>
+    <Enable_SMS>true</Enable_SMS>
+    <Enable_Email>false</Enable_Email>
+    <Threshold>12345</Threshold>
+    <Duration_Frequency>123</Duration_Frequency>
+    <Enable_KPI>kpi cat</Enable_KPI>
+    <Description>kpi description</Description>
+  </KPI_Detail>
+  <KPI_Detail>
+    <KPI_Priority>High</KPI_Priority>
+    <KPI_Number>tst 123</KPI_Number>
+    <KPI_Name>kpi name</KPI_Name>
+    <KPI_Category>cat 1</KPI_Category>
+    <Fraud_Type>Fraud Cat</Fraud_Type>
+    <Service_Cust_Type>Service Cat 1</Service_Cust_Type>
+    <Enable_SMS>true</Enable_SMS>
+    <Enable_Email>false</Enable_Email>
+    <Threshold>12345</Threshold>
+    <Duration_Frequency>123</Duration_Frequency>
+    <Enable_KPI>kpi cat</Enable_KPI>
+    <Description>kpi description</Description>
+  </KPI_Detail>
+</KPI_Details>
