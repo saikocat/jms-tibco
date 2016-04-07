@@ -50,8 +50,7 @@ public class TibcoJmsQueueProducer {
     }
 
     public void queue(final String event, boolean autocommit) throws JMSException {
-        TextMessage message = session.createTextMessage();
-        message.setText(event);
+        TextMessage message = session.createTextMessage(event);
         producer.send(message);
         if (autocommit)
             session.commit();
