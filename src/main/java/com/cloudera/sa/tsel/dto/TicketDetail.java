@@ -54,19 +54,19 @@ public class TicketDetail {
 
     public static class Builder {
         private String alertId;
-        private String kpiNumber;
+        private String ticketId;
         private String msisdn;
 
         public Builder() {
         }
 
-        public Builder withTicketId(final String alertId) {
+        public Builder withAlertId(final String alertId) {
             this.alertId = alertId;
             return this;
         }
 
-        public Builder withKpiNumber(final String kpiNumber) {
-            this.kpiNumber = kpiNumber;
+        public Builder withTicketId(final String ticketId) {
+            this.ticketId = ticketId;
             return this;
         }
 
@@ -76,7 +76,7 @@ public class TicketDetail {
         }
 
         public TicketDetail build() {
-            return new TicketDetail(this.alertId, this.kpiNumber, this.msisdn);
+            return new TicketDetail(this.alertId, this.ticketId, this.msisdn);
         }
     }
 }
