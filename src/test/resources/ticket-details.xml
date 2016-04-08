@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Ticket_Details>
+  <Ticket_Detail>
+    <Alert_ID>alert_id:str</Alert_ID>
+    <Ticket_ID>ticket_id:str</Ticket_ID>
+    <MSISDN>msisdn:str</MSISDN>
+  </Ticket_Detail>
+</Ticket_Details>

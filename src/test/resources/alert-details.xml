@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Alert_Details>
+  <Alert_Detail>
+    <Alert_ID>alert_id:str</Alert_ID>
+    <KPI_Number>kpi_number:str</KPI_Number>
+    <MSISDN>msisdn:str</MSISDN>
+  </Alert_Detail>
+</Alert_Details>
