@@ -19,6 +19,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.common.collect.ImmutableList;
 
 import com.fasterxml.jackson.core.PrettyPrinter;
@@ -28,6 +31,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.cloudera.sa.tsel.dto.*;
 
 public class TibcoRuleMessageSerDesTest {
+
+    final Logger logger = LoggerFactory.getLogger(TibcoRuleMessageSerDesTest.class);
+    // logger.trace(message);
+    // logger.debug(message);
+    // logger.info(message);
+    // logger.warn(message);
+    // logger.error(message);
 
     @Before
     public void setup() {
