@@ -16,7 +16,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class KpiDetailHandler implements BaseHandler {
+public class KpiDetailHandler implements BaseHandler, AllDbFieldsToPojoTransformer {
 
     final Logger logger = LoggerFactory.getLogger(KpiDetailHandler.class);
 
@@ -60,5 +60,39 @@ public class KpiDetailHandler implements BaseHandler {
                 }
             }
         }, kpiDetails.kpiDetails);
+    }
+
+    @Override
+    public KpiDetails processQueryAllFields() throws SQLException {
+        Connection conn = dbHandler.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM " + tableName);
+
+        KpiDetail[] kdItems = dbHandler.query(stmt, new DbHandler.ResultSetTransformer<KpiDetail>() {
+            @Override
+            public KpiDetail[] transform(ResultSet rs) throws SQLException {
+                java.util.List<KpiDetail> items = new java.util.ArrayList<KpiDetail>();
+                while (rs.next()) {
+                    KpiDetail kd = new KpiDetail.Builder()
+                        .withPriority(rs.getString("KPI_Priority"))
+                        .withNumber(rs.getString("KPI_Number"))
+                        .withName(rs.getString("KPI_Name"))
+                        .withCategory(rs.getString("KPI_Category"))
+                        .withFraudType(rs.getString("Fraud_Type"))
+                        .withServiceCustType(rs.getString("Service_Cust_Type"))
+                        .withEnableSms(rs.getBoolean("Enable_SMS"))
+                        .withEnableEmail(rs.getBoolean("Enable_Email"))
+                        .withThreshold(rs.getInt("Threshold"))
+                        .withDurationFrequency(rs.getInt("Duration_Frequency"))
+                        .withEnableKpi(rs.getString("Enable_KPI"))
+                        .withDescription(rs.getString("Description"))
+                        .build();
+                    items.add(kd);
+                }
+                logger.debug(items.toString());
+                return items.toArray(new KpiDetail[items.size()]);
+            }
+        });
+
+        return new KpiDetails(kdItems);
     }
 }

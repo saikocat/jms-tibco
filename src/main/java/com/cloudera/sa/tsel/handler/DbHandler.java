@@ -21,6 +21,10 @@ public class DbHandler<T> {
         void doInsert(T[] data) throws SQLException;
     }
 
+    public interface ResultSetTransformer<T> {
+        T[] transform(ResultSet rs) throws SQLException;
+    }
+
     public void insert(InsertOperation<T> insertOperation, T[] data) {
         try {
             insertOperation.doInsert(data);
@@ -44,6 +48,21 @@ public class DbHandler<T> {
                 }
             } 
         }
+    }
+
+    public ResultSet query(PreparedStatement stmt) throws SQLException {
+        ResultSet rs = null;
+        try {
+            rs = stmt.executeQuery();
+        } catch(SQLException ex) {
+            logger.error(ex.getMessage());
+        }
+        return rs;
+    }
+
+    public T[] query(PreparedStatement stmt, ResultSetTransformer<T> transformer) throws SQLException {
+        ResultSet rs = query(stmt);
+        return transformer.transform(rs);
     }
 
     public Connection getConnection() {
