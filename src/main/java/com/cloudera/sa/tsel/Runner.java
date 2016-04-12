@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList;
 
 public class Runner {
     public static void main(String[] args) throws Exception {
+        /*
         String serverUrl = "tcp://10.53.68.135:8222";
         String userName = "fms_hadoop";
         String password = "fms_hadoop";
@@ -74,5 +75,6 @@ public class Runner {
             }
         }
         consumer.close();
+        */
     }
 }
