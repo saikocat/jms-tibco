@@ -14,7 +14,7 @@ public class KpiDetails {
 
     /*
      * Because of Type Erasure in Java (List, Set, Map), Jackson deserializer
-     * will need to include TypeInference{} class initialization everytime
+     * will need to include TypeInference{} class initialization every time
      * you invoke deserialize func. So keeping it as Array[T] instead to
      * maintain the type.
      */
