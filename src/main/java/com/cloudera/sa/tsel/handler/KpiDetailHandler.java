@@ -72,20 +72,7 @@ public class KpiDetailHandler implements BaseHandler, AllDbFieldsToPojoTransform
             public KpiDetail[] transform(ResultSet rs) throws SQLException {
                 java.util.List<KpiDetail> items = new java.util.ArrayList<KpiDetail>();
                 while (rs.next()) {
-                    KpiDetail kd = new KpiDetail.Builder()
-                        .withPriority(rs.getString("KPI_Priority"))
-                        .withNumber(rs.getString("KPI_Number"))
-                        .withName(rs.getString("KPI_Name"))
-                        .withCategory(rs.getString("KPI_Category"))
-                        .withFraudType(rs.getString("Fraud_Type"))
-                        .withServiceCustType(rs.getString("Service_Cust_Type"))
-                        .withEnableSms(rs.getBoolean("Enable_SMS"))
-                        .withEnableEmail(rs.getBoolean("Enable_Email"))
-                        .withThreshold(rs.getInt("Threshold"))
-                        .withDurationFrequency(rs.getInt("Duration_Frequency"))
-                        .withEnableKpi(rs.getString("Enable_KPI"))
-                        .withDescription(rs.getString("Description"))
-                        .build();
+                    KpiDetail kd = rowMapper(rs);
                     items.add(kd);
                 }
                 logger.debug(items.toString());
@@ -94,5 +81,23 @@ public class KpiDetailHandler implements BaseHandler, AllDbFieldsToPojoTransform
         });
 
         return new KpiDetails(kdItems);
+    }
+
+    // Call this after you moved the cursor
+    public KpiDetail rowMapper(ResultSet rs) throws SQLException {
+        return new KpiDetail.Builder()
+            .withPriority(rs.getString("KPI_Priority"))
+            .withNumber(rs.getString("KPI_Number"))
+            .withName(rs.getString("KPI_Name"))
+            .withCategory(rs.getString("KPI_Category"))
+            .withFraudType(rs.getString("Fraud_Type"))
+            .withServiceCustType(rs.getString("Service_Cust_Type"))
+            .withEnableSms(rs.getBoolean("Enable_SMS"))
+            .withEnableEmail(rs.getBoolean("Enable_Email"))
+            .withThreshold(rs.getInt("Threshold"))
+            .withDurationFrequency(rs.getInt("Duration_Frequency"))
+            .withEnableKpi(rs.getString("Enable_KPI"))
+            .withDescription(rs.getString("Description"))
+            .build();
     }
 }
