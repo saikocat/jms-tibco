@@ -1,43 +1,27 @@
 package com.cloudera.sa.tsel;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import org.mockito.ArgumentCaptor;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-
+import com.cloudera.sa.tsel.dto.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.common.collect.ImmutableList;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.net.URISyntaxException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.Files;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.collect.ImmutableList;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import com.fasterxml.jackson.core.PrettyPrinter;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import com.cloudera.sa.tsel.dto.*;
+import static org.junit.Assert.assertEquals;
 
 public class TibcoRuleMessageSerDesTest {
 
     final Logger logger = LoggerFactory.getLogger(TibcoRuleMessageSerDesTest.class);
-    // logger.trace(message);
-    // logger.debug(message);
-    // logger.info(message);
-    // logger.warn(message);
-    // logger.error(message);
 
     @Before
     public void setup() {

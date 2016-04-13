@@ -1,28 +1,18 @@
 package com.cloudera.sa.tsel;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import org.mockito.ArgumentCaptor;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.URISyntaxException;
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.Files;
-import java.io.File;
-
 import java.sql.*;
 
 public class JdbcTest {

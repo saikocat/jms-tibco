@@ -1,20 +1,8 @@
 package com.cloudera.sa.tsel;
 
-import com.tibco.tibjms.Tibjms;
-import com.tibco.tibjms.TibjmsConnectionFactory;
-
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.Message;
-import javax.jms.TextMessage;
-
-import javax.jms.JMSException;
-
 import com.cloudera.sa.tsel.handler.BaseHandler;
+
+import javax.jms.*;
 
 // TODO: ExceptionListener
 

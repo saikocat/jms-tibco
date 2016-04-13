@@ -1,7 +1,5 @@
 package com.cloudera.sa.tsel;
 
-import com.cloudera.sa.tsel.dto.*;
-
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

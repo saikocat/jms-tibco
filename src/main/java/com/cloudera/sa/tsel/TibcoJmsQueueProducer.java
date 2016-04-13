@@ -1,7 +1,5 @@
 package com.cloudera.sa.tsel;
 
-import com.tibco.tibjms.TibjmsConnectionFactory;
-
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;

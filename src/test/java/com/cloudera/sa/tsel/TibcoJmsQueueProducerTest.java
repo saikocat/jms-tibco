@@ -1,25 +1,17 @@
 package com.cloudera.sa.tsel;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
+import com.tibco.tibjms.TibjmsConnectionFactory;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import org.junit.Before;
-import org.junit.Test;
+import javax.jms.*;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.Message;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.JMSException;
-
-import com.tibco.tibjms.TibjmsConnectionFactory;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
 
 public class TibcoJmsQueueProducerTest {
 

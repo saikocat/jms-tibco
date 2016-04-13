@@ -1,31 +1,20 @@
 package com.cloudera.sa.tsel;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import org.mockito.ArgumentCaptor;
+import com.cloudera.sa.tsel.handler.BaseHandler;
+import com.tibco.tibjms.TibjmsConnectionFactory;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.JMSException;
-
-import com.tibco.tibjms.TibjmsConnectionFactory;
-
+import javax.jms.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.cloudera.sa.tsel.handler.BaseHandler;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.*;
 
 
 // the 3 in 1 test :|

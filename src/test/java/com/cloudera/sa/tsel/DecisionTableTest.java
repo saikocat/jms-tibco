@@ -1,31 +1,25 @@
 package com.cloudera.sa.tsel;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-
-import org.mockito.ArgumentCaptor;
+import com.cloudera.sa.tsel.dto.KpiDetail;
+import com.cloudera.sa.tsel.dto.KpiDetails;
+import com.cloudera.sa.tsel.handler.DbHandler;
+import com.cloudera.sa.tsel.handler.KpiDetailHandler;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.jms.Destination;
-import javax.jms.Message;
-import javax.jms.MessageProducer;
+import javax.jms.JMSException;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-import javax.jms.JMSException;
-
-import java.sql.*;
-
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import com.cloudera.sa.tsel.handler.*;
-import com.cloudera.sa.tsel.dto.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class DecisionTableTest extends JdbcTest {
 
