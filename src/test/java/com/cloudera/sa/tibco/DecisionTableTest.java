@@ -1,9 +1,9 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
-import com.cloudera.sa.tsel.dto.KpiDetail;
-import com.cloudera.sa.tsel.dto.KpiDetails;
-import com.cloudera.sa.tsel.handler.DbHandler;
-import com.cloudera.sa.tsel.handler.KpiDetailHandler;
+import com.cloudera.sa.tibco.dto.KpiDetail;
+import com.cloudera.sa.tibco.dto.KpiDetails;
+import com.cloudera.sa.tibco.handler.DbHandler;
+import com.cloudera.sa.tibco.handler.KpiDetailHandler;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;

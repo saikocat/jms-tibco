@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
 import javax.jms.Session;
 import javax.jms.Message;
@@ -8,7 +8,7 @@ import javax.jms.MessageListener;
 import javax.jms.JMSException;
 import java.io.IOException;
 
-import com.cloudera.sa.tsel.handler.BaseHandler;
+import com.cloudera.sa.tibco.handler.BaseHandler;
 
 public class TibcoRuleMessageListener implements MessageListener {
     private Session session;

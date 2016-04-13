@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel.handler;
+package com.cloudera.sa.tibco.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

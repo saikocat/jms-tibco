@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;

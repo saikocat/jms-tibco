@@ -1,6 +1,6 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
-import com.cloudera.sa.tsel.dto.*;
+import com.cloudera.sa.tibco.dto.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.collect.ImmutableList;

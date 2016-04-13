@@ -1,7 +1,7 @@
-package com.cloudera.sa.tsel.handler;
+package com.cloudera.sa.tibco.handler;
 
-import com.cloudera.sa.tsel.dto.*;
-import com.cloudera.sa.tsel.TibcoRuleMessageSerDes;
+import com.cloudera.sa.tibco.dto.*;
+import com.cloudera.sa.tibco.TibcoRuleMessageSerDes;
 
 import javax.jms.TextMessage;
 

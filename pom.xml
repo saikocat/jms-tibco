@@ -125,7 +125,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.cloudera.sa.tsel.Runner</mainClass>
+              <mainClass>com.cloudera.sa.tibco.Runner</mainClass>
             </manifest>
           </archive>
         </configuration>

@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
 import org.junit.Before;
 import org.junit.Test;

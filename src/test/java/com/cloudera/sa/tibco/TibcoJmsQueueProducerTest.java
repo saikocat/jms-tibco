@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
 import com.tibco.tibjms.TibjmsConnectionFactory;
 import org.junit.Before;

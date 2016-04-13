@@ -1,61 +1,38 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.Destination;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
+import com.cloudera.sa.tibco.handler.BaseHandler;
 
-import javax.jms.JMSException;
+import javax.jms.*;
 
-public class TibcoJmsQueueProducer {
-    private static final boolean AUTOCOMMIT = false;
+// TODO: ExceptionListener
+
+public class TibcoJmsQueueConsumer {
     private static final boolean TRANSACTED = true;
 
     private final ConnectionFactory factory;
     private final Connection connection;
     private final Session session;
-    private final MessageProducer producer;
     private final Destination destination;
+    private final MessageConsumer consumer;
 
-    public TibcoJmsQueueProducer(
+    public TibcoJmsQueueConsumer(
             final ConnectionFactory factory, final Connection connection,
             final Session session, final Destination destination,
-            final MessageProducer producer) throws JMSException {
+            final MessageConsumer consumer) throws JMSException {
         this.factory = factory;
         this.connection = connection;
         this.session = session;
         this.destination = destination;
-        this.producer = producer;
+        this.consumer = consumer;
     }
 
     public void start() throws JMSException {
         connection.start();
     }
 
-    public void commit() throws JMSException {
-        session.commit();
-    }
-
-    public void rollback() throws JMSException {
-        session.rollback();
-    }
-
     public void close() throws JMSException {
         session.close();
         connection.close();
-    }
-
-    public void queue(final String event, boolean autocommit) throws JMSException {
-        TextMessage message = session.createTextMessage(event);
-        producer.send(message);
-        if (autocommit)
-            session.commit();
-    }
-
-    public void queue(final String event) throws JMSException {
-        queue(event, AUTOCOMMIT);
     }
 
     /*
@@ -70,15 +47,15 @@ public class TibcoJmsQueueProducer {
         private ConnectionFactory factory;
         private Connection connection;
         private Session session;
-        private MessageProducer producer;
         private Destination destination;
+        private MessageConsumer consumer;
 
         public Builder(
                 final String serverUrl,
                 final String userName, final String password) throws JMSException {
             this.factory = new com.tibco.tibjms.TibjmsConnectionFactory(serverUrl);
             this.connection = factory.createConnection(userName, password);
-            this.session = connection.createSession(TRANSACTED, Session.SESSION_TRANSACTED);
+            this.session = this.connection.createSession(TRANSACTED, Session.SESSION_TRANSACTED);
         }
 
         public Builder withDestination(final String destination) throws JMSException {
@@ -86,20 +63,31 @@ public class TibcoJmsQueueProducer {
             return this;
         }
 
-        public Builder withProducer(final Destination destination) throws JMSException {
-            this.producer = this.session.createProducer(destination);
+        public Builder withConsumer(final Destination destination) throws JMSException {
+            this.consumer = this.session.createConsumer(destination);
             return this;
         }
 
-        public Builder withProducer() throws JMSException {
-            this.producer = this.session.createProducer(this.destination);
+        public Builder withConsumer() throws JMSException {
+            this.consumer = this.session.createConsumer(this.destination);
             return this;
         }
 
-        public TibcoJmsQueueProducer build() throws JMSException {
-            return new TibcoJmsQueueProducer(
-                this.factory, this.connection, this.session, this.destination,
-                this.producer);
+        public Builder withMessageListener(BaseHandler handler) throws JMSException {
+            this.consumer.setMessageListener(
+                new TibcoRuleMessageListener(this.session, handler));
+            return this;
+        }
+
+        public Builder withMessageListener(final MessageListener listener) throws JMSException {
+            this.consumer.setMessageListener(listener);
+            return this;
+        }
+
+        public TibcoJmsQueueConsumer build() throws JMSException {
+            return new TibcoJmsQueueConsumer(
+                this.factory, this.connection, this.session,
+                this.destination, this.consumer);
         }
     }
 }

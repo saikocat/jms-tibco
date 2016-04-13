@@ -1,12 +1,4 @@
-package com.cloudera.sa.tsel;
-
-import java.io.InputStreamReader;
-
-import com.cloudera.sa.tsel.dto.KpiDetail;
-import com.cloudera.sa.tsel.dto.KpiDetails;
-import com.cloudera.sa.tsel.handler.KpiDetailHandler;
-
-import com.google.common.collect.ImmutableList;
+package com.cloudera.sa.tibco;
 
 public class Runner {
     public static void main(String[] args) throws Exception {

@@ -1,6 +1,6 @@
-package com.cloudera.sa.tsel;
+package com.cloudera.sa.tibco;
 
-import com.cloudera.sa.tsel.handler.BaseHandler;
+import com.cloudera.sa.tibco.handler.BaseHandler;
 import com.tibco.tibjms.TibjmsConnectionFactory;
 import org.junit.Before;
 import org.junit.Test;

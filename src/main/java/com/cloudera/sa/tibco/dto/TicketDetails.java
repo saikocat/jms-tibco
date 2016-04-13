@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel.dto;
+package com.cloudera.sa.tibco.dto;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

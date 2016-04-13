@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel.handler;
+package com.cloudera.sa.tibco.handler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

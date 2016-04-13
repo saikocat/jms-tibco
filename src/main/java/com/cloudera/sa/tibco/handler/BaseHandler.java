@@ -1,4 +1,4 @@
-package com.cloudera.sa.tsel.handler;
+package com.cloudera.sa.tibco.handler;
 
 import javax.jms.TextMessage;
 
