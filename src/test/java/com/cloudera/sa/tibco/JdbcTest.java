@@ -37,7 +37,7 @@ public class JdbcTest {
     public void smokeTest() throws SQLException {
         Statement stmt = getConnection().createStatement();
         stmt.executeUpdate("SET MODE MySQL");
-        stmt.executeUpdate("CREATE TABLE Sells " +
+        stmt.executeUpdate("CREATE TABLE IF NOT EXISTS Sells " +
                 "(bar VARCHAR2(40), beer VARCHAR2(40), price REAL)" );
         stmt.executeUpdate("INSERT INTO Sells " +
                 "VALUES ('Bar Of Foo', 'BudLite', 2.00)" );
