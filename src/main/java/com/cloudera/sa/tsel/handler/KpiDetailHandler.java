@@ -84,6 +84,7 @@ public class KpiDetailHandler implements BaseHandler, AllDbFieldsToPojoTransform
     }
 
     // Call this after you moved the cursor
+    @Override
     public KpiDetail rowMapper(ResultSet rs) throws SQLException {
         return new KpiDetail.Builder()
             .withPriority(rs.getString("KPI_Priority"))
