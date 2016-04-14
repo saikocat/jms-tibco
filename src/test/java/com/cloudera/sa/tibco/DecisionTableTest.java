@@ -30,7 +30,7 @@ public class DecisionTableTest extends JdbcTest {
     public void setup() {
         super.setup();
         conn = super.getConnection();
-        logger.info("Inited connection from base class...");
+        logger.info("Initialized connection from base class...");
     }
 
     @Test
@@ -39,7 +39,7 @@ public class DecisionTableTest extends JdbcTest {
         setDbCompatMode("MySQL", stmt);
         initScript(initSql, stmt);
 
-        // Mock the TextMesage
+        // Mock the TextMessage
         Session session = mock(Session.class);
         when(session.createTextMessage(any(String.class))).thenAnswer(new Answer<TextMessage>() {
             @Override

@@ -31,9 +31,9 @@ public class TibcoRuleMessageSerDesTest {
             .enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    // WARNING: Be careful about testing string comparision for xml here
+    // WARNING: Be careful about testing string comparison for XML here
     // This is rather lazy way of testing so the content must match exactly
-    // Common thing to look out in xml is the use of ' and ", UTF-8 capitalization
+    // Common thing to look out in XML is the use of ' and ", UTF-8 capitalization
 
     @Test
     public void shouldDeserialize_KpiDetails() throws URISyntaxException,
