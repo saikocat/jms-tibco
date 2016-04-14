@@ -121,8 +121,6 @@ public class KpiDetail {
             && Objects.equal(this.description, other.description);
     }
 
-
-
     public static class Builder {
         private String priority;
         private String number;
