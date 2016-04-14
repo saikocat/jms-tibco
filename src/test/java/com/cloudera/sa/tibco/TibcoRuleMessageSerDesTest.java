@@ -1,7 +1,6 @@
 package com.cloudera.sa.tibco;
 
 import com.cloudera.sa.tibco.dto.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.collect.ImmutableList;
 import org.junit.Before;
@@ -10,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -36,55 +34,48 @@ public class TibcoRuleMessageSerDesTest {
     // Common thing to look out in XML is the use of ' and ", UTF-8 capitalization
 
     @Test
-    public void shouldDeserialize_KpiDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException {
+    public void shouldDeserialize_KpiDetails() throws URISyntaxException, IOException {
         String xml = getFileContent("/kpi-details.xml");
         assertEquals(TibcoRuleMessageSerDes.deserialize(xml, KpiDetails.class),
                      createKpiDetails());
     }
 
     @Test
-    public void shouldSerialize_KpiDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException, JsonProcessingException {
+    public void shouldSerialize_KpiDetails() throws URISyntaxException, IOException {
         KpiDetails kds = createKpiDetails();
         assertEquals(TibcoRuleMessageSerDes.serialize(kds),
                      getFileContent("/kpi-details.xml"));
     }
 
     @Test
-    public void shouldDeserialize_AlertDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException {
+    public void shouldDeserialize_AlertDetails() throws URISyntaxException, IOException {
         String xml = getFileContent("/alert-details.xml");
         assertEquals(TibcoRuleMessageSerDes.deserialize(xml, AlertDetails.class),
                      createAlertDetails());
     }
 
     @Test
-    public void shouldSerialize_AlertDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException, JsonProcessingException {
+    public void shouldSerialize_AlertDetails() throws URISyntaxException, IOException {
         AlertDetails kds = createAlertDetails();
         assertEquals(TibcoRuleMessageSerDes.serialize(kds),
                      getFileContent("/alert-details.xml"));
     }
 
     @Test
-    public void shouldDeserialize_TicketDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException {
+    public void shouldDeserialize_TicketDetails() throws URISyntaxException, IOException {
         String xml = getFileContent("/ticket-details.xml");
         assertEquals(TibcoRuleMessageSerDes.deserialize(xml, TicketDetails.class),
                      createTicketDetails());
     }
 
     @Test
-    public void shouldSerialize_TicketDetails() throws URISyntaxException,
-           IOException, UnsupportedEncodingException, JsonProcessingException {
+    public void shouldSerialize_TicketDetails() throws URISyntaxException, IOException {
         TicketDetails kds = createTicketDetails();
         assertEquals(TibcoRuleMessageSerDes.serialize(kds),
                      getFileContent("/ticket-details.xml"));
     }
 
-    public String getFileContent(String resourceUrl) throws URISyntaxException,
-           IOException, UnsupportedEncodingException {
+    public String getFileContent(String resourceUrl) throws URISyntaxException, IOException {
         URL url = getClass().getResource(resourceUrl);
         Path resPath = Paths.get(url.toURI());
         return new String(Files.readAllBytes(resPath), "UTF8");
