@@ -16,15 +16,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
-
 // the 3 in 1 test :|
 public class TibcoJmsQueueConsumerTest {
 
     private TibcoJmsQueueConsumer queueConsumer;
     private Session session;
     private MessageConsumer consumer;
-    private TibcoRuleMessageListener listener;
-    private BaseHandler handler;
 
     final AtomicInteger counter = new AtomicInteger(0);
     final CountDownLatch done = new CountDownLatch(1);
